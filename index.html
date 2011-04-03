@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+<title>PackFi Alpha</title>
+<style>
+
+body {
+	font: 14px 'lucida grande', tahoma, verdana, arial, sans-serif;
+	margin: 0;
+	background: #d6d6d6;
+}
+
+#header {
+	background: #7a0412;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8A0F0B), to(#760A07));
+	color: #fff;
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	width: 100%;
+	/* -webkit-box-shadow: 0 0 10px #666;
+	-moz-box-shadow: 0 0 10px #666; */
+}
+
+#headwrap {
+	width: 980px;
+	height: 40px;
+	line-height: 40px;
+	margin: 0 auto;
+}
+
+#header a {
+	color: #fff;
+	text-decoration: none;
+	padding: 0 5px;
+}
+
+#header a:hover {
+	text-decoration: underline;
+}
+
+a #logo {
+	border: 0;
+}
+
+#logo {
+	vertical-align: middle;
+}
+
+#navigation {
+	height: 30px;
+	line-height: 30px;
+	background: #ffcc22;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffcc22), to(#f4bc2b));
+	width: 980px;
+	padding: 0 10px;
+	position: relative;
+	z-index: 998;
+	margin: 40px auto 0;
+	-webkit-box-shadow: 0 -5px 10px #aaa;
+	-moz-box-shadow: 0 -5px 10px #aaa;
+}
+
+#navigation a {
+	color: #912012;
+	text-decoration: none;
+	padding: 0 5px;
+}
+
+#navigation a:hover {
+	text-decoration: underline;
+}
+
+#wrapper {
+	background: #fff;
+	width: 970px;
+	padding: 15px;
+	margin: 0 auto 15px;
+	-webkit-box-shadow: 0 0 10px #aaa;
+	-moz-box-shadow: 0 0 10px #aaa;
+}
+
+#sidebar {
+	font-size: 0.8em;
+	float: right;
+	padding-left: 15px;
+	border-left: 1px solid #ddd;
+	width: 250px;
+	height: 400px;
+}
+
+#footer {
+	width: 980px;
+	text-align: right;
+	margin: 0 auto;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+#footer a {
+	text-decoration: none;
+	color: #999;
+}
+
+#footer a:hover {
+	color: #333;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+input {
+	border: 1px solid #ddd;
+	padding: 5px;
+}
+
+hr {
+	border: 0;
+	border-bottom: 1px solid #ddd;
+}
+
+</style>
+<script type="text/javascript">
+
+$(document).ready(function(){
+			
+});
+
+</script>
+</head>
+<body>
+
+<div id="header">
+	<div id="headwrap">
+		<a href="http://packfi.com/"><img src="images/logo.png" id="logo" /></a> <small>alpha</small>
+		<span style="float: right;">
+			<a href="/">Home</a>
+			<a href="/preferences">Preferences</a>
+			<a href="/logout">Logout</a>
+		</span>
+	</div>
+</div>
+
+<div id="navigation">
+	<a href="/profile">Profile</a>
+	<a href="/friends">Friends</a>
+	<a href="/questions">Questions</a>
+	<a href="/pages">Pages</a>
+	<a href="/games">Games</a>
+	<a href="/photos">Photos</a>
+	<span style="float: right;">
+		<a href="/inbox">Inbox (5)</a>
+		<a href="/karma">Karma (239)</a>
+	</span>
+</div>
+
+<div id="wrapper" class="clearfix">
+	<div id="sidebar">
+		There are 205 other people on this page.
+	</div>
+	<form id="chat">
+		<strong>What's up?</strong> &nbsp; &nbsp;
+		<input type="text" style="width: 250px;" value="Right now I'm..." id="chatBox">
+	</form>
+	<hr />
+</div>
+
+<div id="footer">
+	<a href="http://oak.io/">Made by Oak</a>
+</div>
+
+</body>
+</html>

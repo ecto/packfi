@@ -1,0 +1,211 @@
+
+<!doctype html> 
+<html> 
+<head> 
+<title>PackFi Alpha</title> 
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+<style> 
+ 
+body {
+	font: 14px 'lucida grande', tahoma, verdana, arial, sans-serif;
+	margin: 0;
+	background: #d6d6d6;
+}
+ 
+#header {
+	background: #7a0412;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8A0F0B), to(#760A07));
+	color: #fff;
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	width: 100%;
+	/* -webkit-box-shadow: 0 0 10px #666;
+	-moz-box-shadow: 0 0 10px #666; */
+}
+ 
+#headwrap {
+	width: 980px;
+	height: 100px;
+	line-height: 100px;
+	margin: 0 auto;
+}
+ 
+#header a {
+	color: #fff;
+	text-decoration: none;
+	padding: 0 5px;
+}
+ 
+#header a:hover {
+	text-decoration: underline;
+}
+ 
+a #logo {
+	border: 0;
+}
+ 
+#logo {
+	vertical-align: middle;
+}
+ 
+#navigation {
+	height: 30px;
+	line-height: 30px;
+	background: #ffcc22;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffcc22), to(#fe9b429));
+	width: 980px;
+	padding: 0 10px;
+	position: relative;
+	z-index: 998;
+	margin: 100px auto 0;
+	-webkit-box-shadow: 0 -5px 10px #aaa;
+	-moz-box-shadow: 0 -5px 10px #aaa;
+	color: #912012;
+}
+ 
+#navigation a {
+	color: #912012;
+	text-decoration: none;
+	padding: 0 5px;
+}
+ 
+#navigation a:hover {
+	text-decoration: underline;
+}
+ 
+#wrapper {
+	background: #fff;
+	width: 970px;
+	padding: 15px;
+	margin: 0 auto 15px;
+	-webkit-box-shadow: 0 0 10px #aaa;
+	-moz-box-shadow: 0 0 10px #aaa;
+}
+ 
+#sidebar {
+	font-size: 0.8em;
+	float: right;
+	padding-left: 15px;
+	border-left: 1px solid #ddd;
+	width: 250px;
+	height: 260px;
+}
+ 
+#footer {
+	width: 980px;
+	text-align: right;
+	margin: 0 auto;
+	font-family: Helvetica, Arial, sans-serif;
+}
+ 
+#footer a {
+	text-decoration: none;
+	color: #999;
+}
+ 
+#footer a:hover {
+	color: #333;
+}
+ 
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+#header input {
+	border: 0;
+	margin-right: 10px;
+	padding: 5px;
+}
+
+#sidebar input {
+	width: auto;
+	border: 1px solid #ddd;
+	padding: 5px;
+}
+
+#signup {
+	text-align: right;
+}
+
+#signup input {
+	width: 140px;
+}
+
+.submit {
+	border: 1px solid #530806 !important;
+	background: #7a0412;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8A0F0B), to(#760A07));	
+	color: #fff;
+	width: 50px;
+}
+
+.error {
+	color: red;
+}
+  
+</style> 
+<script type="text/javascript"> 
+ 
+$(document).ready(function(){
+			
+});
+ 
+</script> 
+</head> 
+<body> 
+ 
+<div id="header"> 
+	<div id="headwrap"> 
+		<a href="http://packfi.com/"><img src="images/logo.png" id="logo" /></a> <small>alpha</small> 
+		<form method="post" action="/login" style="float: right;"> 
+			Username: <input type="text" name="username" />
+			Password: <input type="password" name="password" />
+			<input type="submit" class="submit" value="Login">
+		</form> 
+	</div> 
+</div> 
+ 
+<div id="navigation"> 
+	The better social network.
+	<span style="float: right;"> 
+		It's free, and there will never be ads.
+	</span> 
+</div> 
+ 
+<div id="wrapper" class="clearfix"> 
+	<div id="sidebar"> 
+		<strong>Sign up for PackFi</strong>
+		<form id="signup" action="/signup" method="post">
+			First name: <input type="text" name="first" /><br />
+			Last name: <input type="text" name="last" /><br />
+			Username: <input type="text" name="username" /><br />
+			Email: <input type="text" name="email" /><br />
+			Password: <input type="password" name="password" /><br />
+			Password again: <input type="password" name="password2" /><br />
+			Invite code: <input type="text" name="invite" /><br /><br />
+			<input type="submit" style="width: 75px;" class="submit" value="Sign up" />
+		</form>
+	</div> 
+	<div style="text-align: center; font-size: 1.3em;">
+		<%- message %>
+		<strong>Connect with the people you care about.</strong><br /><br />
+		<strong>See your social graph.</strong><br /><br />
+		<strong>Stand out from the crowd.</strong><br /><br />
+	</div>
+	<p>Use <strong>PackFi</strong> to catch up with friends, check out pictures from the party last night, find cool things on the Internet, or start the next revolution.</p>
+	<p style="text-align: right; margin-right: 275px;">Use it however you like. It won't bite.</p>
+	<p><strong>PackFi</strong> is in its alpha phase. It's new. Like a large baby. There are bugs and missing features. Let somebody know when you find them!</p>
+</div> 
+ 
+<div id="footer"> 
+	<a href="http://oak.io/">Made by Oak</a> 
+</div> 
+ 
+</body> 
+</html> 

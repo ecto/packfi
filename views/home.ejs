@@ -1,0 +1,85 @@
+<style>
+#chatWindow {
+	font-size: 0.9em;
+}
+</style>
+
+
+<div id="sidebar">
+        There are 205 other people on this page.
+	<p><strong>My Groups</strong></p>
+	<a href="">Brainerd, Minnesota</a>
+	<p><strong>Online Now</strong></p>
+	some guy
+</div>
+
+<form id="chat">
+        <strong>Chat</strong> &nbsp; &nbsp;
+        <input type="text" style="color: #ddd; width: 545px;" value="What's up?" id="chatBox">
+	<input type="submit" class="submit" style="width: 80px;" value="Send" />
+</form>
+
+<hr />
+
+<div id="chatWindow">
+	Loading previous messages...
+</div>
+
+<div id="debug">
+
+</div>
+
+<script type="text/javascript">
+var chatBuffer = [];
+
+$(document).ready(function(){
+	$.get('/chat/1', function(data){
+		$("#chatWindow").text('');
+		data.reverse();
+		for (var i in data) {
+			addChat(data[i]);
+		}
+	});
+	$("#chatBox").focus(function(){
+		if ($(this).val() == "What's up?") {
+			$(this).val('');
+			$(this).css('color','#000');			
+		}
+	});
+	$("#chatBox").blur(function(){
+		if ($(this).val() == '') {
+			$(this).val("What's up?");
+			$(this).css('color','#ddd');
+		}
+	});
+	$("#chat").submit(function(){
+		var message = $("#chatBox").val();
+		$.post('/chat/1', { author: <%- user.id %>, message: message }, function(id){
+			//var user = {id: '<%- user.id %>', picture: '<%- user.picture %>', firstName: '<%- user.firstName %>', lastName: '<%- user.lastName %>'};
+			//addChat({id: id, message: message, user: user});
+		});
+		$("#chatBox").val('');
+		return false;
+	});
+	var chatTimer = setInterval(function(){
+		$.get('/chat/1', function(data){
+			for (var i in data) {
+				var message = data[i];
+				var found = false;
+				if (chatBuffer[message.id]) { found = true; }
+				if (found == false) { addChat(data[i]); }
+			}
+		});
+	}, 1000);
+});
+
+function addChat(chat){
+	chatBuffer[chat.id] = chat;
+	$('<p><a href="/profile/' + chat.user.id + '">'
+		+ '<img height="25" src="/images/profile/' + chat.user.picture + '_thumb.jpg" style="vertical-align: middle; margin-right: 5px; float: left;" /> '
+		+ chat.user.firstName + ' ' + chat.user.lastName + '</a>: ' + chat.message + "</p>").hide().prependTo('#chatWindow').fadeIn();
+	if ($("#chatWindow p").length > 25) {
+		$("#chatWindow p").last().remove();
+	}
+}
+</script>
